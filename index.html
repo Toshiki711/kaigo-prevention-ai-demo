@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>介護予防AI｜サービスLP（プレビュー簡易版）</title>
+  <style>
+    :root { --bg:#f8fafc; --fg:#0f172a; --muted:#64748b; --card:#ffffff; --border:#e2e8f0; --primary:#0f172a; --accent:#111827; }
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto; background:linear-gradient(#f8fbff,#fff); color:var(--fg);}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .chip{display:inline-block;border:1px solid var(--border);padding:.25rem .6rem;border-radius:999px;font-size:.8rem;color:var(--muted)}
+    h1{font-size:40px;line-height:1.2;margin:0}
+    h2{font-size:28px;margin:0}
+    .section{padding:64px 0}
+    .hero{padding-top:72px;padding-bottom:24px}
+    .row{display:grid;gap:24px}
+    @media(min-width:900px){ .row-2{grid-template-columns:1fr 1fr} .row-3{grid-template-columns:1fr 1fr 1fr} }
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px; box-shadow:0 2px 8px rgba(15,23,42,.04)}
+    .card .body{padding:20px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:#fff;border:none;border-radius:12px;padding:.8rem 1.1rem;font-weight:600;cursor:pointer}
+    .btn.outline{background:transparent;color:var(--fg);border:1px solid var(--border)}
+    .muted{color:var(--muted)}
+    .stat{padding:16px;border:1px solid var(--border);border-radius:14px;background:#fff}
+    .grid{display:grid;gap:16px}
+    .input, select{width:100%;padding:.6rem .7rem;border:1px solid var(--border);border-radius:8px}
+    .badge{display:inline-block;background:#fef3c7;color:#92400e;border-radius:8px;padding:.15rem .4rem}
+    .gauge{height:12px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+    .gauge > div{height:100%;background:#111827}
+    .dot{width:10px;height:10px;border-radius:999px;display:inline-block}
+    .dot.low{background:#10b981}.dot.mod{background:#f59e0b}.dot.high{background:#ea580c}.dot.vhigh{background:#e11d48}
+    footer{border-top:1px solid var(--border); background:#fff}
+    .cta{position:fixed;left:0;right:0;bottom:16px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div style="display:flex;align-items:center;gap:.6rem">
+        <div class="chip">介護予防AI</div>
+        <div class="muted" style="font-size:.8rem">Preventive Care Intelligence</div>
+      </div>
+      <nav style="display:none;gap:1rem" class="navlinks">
+        <a href="#features" class="muted">機能</a>
+        <a href="#how" class="muted">導入フロー</a>
+        <a href="#roi" class="muted">ROI</a>
+        <a href="#risk-demo" class="muted">体験</a>
+        <a href="#pricing" class="muted">価格</a>
+      </nav>
+      <div style="display:flex;gap:.5rem">
+        <a href="#contact" class="btn outline">お問い合わせ</a>
+        <a href="#contact" class="btn">デモ予約</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hero">
+      <div class="container row row-2">
+        <div>
+          <h1>要支援・要介護の“兆し”を捉え、<span class="badge">早期介入</span>を標準化する。</h1>
+          <p class="muted" style="margin-top:14px;font-size:1.05rem">
+            介護予防AIは、健診・レセプト・介護データ等を横断解析し、発症リスクを可視化。
+            保健指導・通所・運動教室などの<strong>最適な介入</strong>をレコメンドします。
+          </p>
+          <div style="margin-top:16px;display:flex;gap:.5rem;flex-wrap:wrap">
+            <a href="#contact" class="btn">資料請求・デモ</a>
+            <a href="#how" class="btn outline">仕組みを見る</a>
+          </div>
+          <div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:16px">
+            <div class="stat"><div class="muted" style="font-size:.85rem">予測精度（AUC）*</div><div style="font-size:1.6rem;font-weight:800">0.82</div><div class="muted" style="font-size:.75rem">* 検証データ例。条件で変動</div></div>
+            <div class="stat"><div class="muted" style="font-size:.85rem">対象データ</div><div style="font-size:1.6rem;font-weight:800">健診/レセ/介護</div></div>
+            <div class="stat"><div class="muted" style="font-size:.85rem">補助金対応</div><div style="font-size:1.6rem;font-weight:800">要件整理OK</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="card"><div class="body">
+            <h3 style="margin:0 0 6px 0">予測×介入の効果イメージ</h3>
+            <p class="muted" style="margin:0 0 12px 0">高リスク層に早期介入することで移行を抑制。</p>
+            <div class="gauge"><div style="width:60%"></div></div>
+            <div class="muted" style="font-size:.8rem;display:flex;justify-content:space-between;margin-top:6px">
+              <span>介入なし</span><span>AI介入</span>
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roi" class="section">
+      <div class="container row row-2">
+        <div>
+          <h2>効果が数字でわかる</h2>
+          <p class="muted">運用前に効果仮説を明確化し、運用後はデータで検証。財政インパクトの説明責任にも耐えうる設計です。</p>
+          <ul class="muted">
+            <li>予防投資⇄医療・介護費の関係を可視化</li>
+            <li>政策評価：差の差・割引キャッシュフロー</li>
+            <li>住民・事業者双方のアウトカムを追跡</li>
+          </ul>
+        </div>
+        <div class="card"><div class="body">
+          <h3 style="margin:0 0 6px 0">かんたんROIシミュレーター</h3>
+          <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+            <label>対象人数<input id="ppl" class="input" type="number" value="10000"></label>
+            <label>年間発生率<input id="base" class="input" type="number" step="0.01" value="0.12"></label>
+            <label>低減効果<input id="red" class="input" type="number" step="0.01" value="0.15"></label>
+            <label>一人当たり削減額<input id="unit" class="input" type="number" value="300000"></label>
+            <label>年間利用料<input id="fee" class="input" type="number" value="18000000"></label>
+          </div>
+          <div class="grid" style="margin-top:12px">
+            <div class="stat"><div class="muted" style="font-size:.85rem">年間回避見込み（人）</div><div id="s_prevented" style="font-size:1.6rem;font-weight:800">180</div></div>
+            <div class="stat"><div class="muted" style="font-size:.85rem">年間削減額（円）</div><div id="s_saving" style="font-size:1.6rem;font-weight:800">54,000,000</div></div>
+            <div class="stat"><div class="muted" style="font-size:.85rem">ROI（利益/費用）</div><div id="s_roi" style="font-size:1.6rem;font-weight:800">2.00×</div></div>
+          </div>
+        </div></div>
+      </div>
+    </section>
+
+    <section id="risk-demo" class="section" style="background:#f8fafc">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:16px">
+          <h2>体験：将来介護リスクをその場で推定</h2>
+          <p class="muted">HbA1c・TG・血圧・BMI・eGFR・生活習慣から5年リスクを体験的に試算（学術評価前のデモ）。</p>
+        </div>
+        <div class="card"><div class="body">
+          <div class="row row-2">
+            <div class="grid">
+              <div class="row row-2">
+                <label>年齢（歳）<input id="age" class="input" type="number" min="40" max="100" value="68"></label>
+                <label>性別
+                  <select id="sex">
+                    <option value="female" selected>女性</option>
+                    <option value="male">男性</option>
+                  </select>
+                </label>
+              </div>
+              <div class="row row-2">
+                <label>HbA1c（%）<input id="hba1c" class="input" type="number" step="0.1" value="6.2"></label>
+                <label>TG（mg/dL）<input id="tg" class="input" type="number" value="160"></label>
+              </div>
+              <div class="row row-2">
+                <label>BMI（kg/m²）<input id="bmi" class="input" type="number" step="0.1" value="24"></label>
+                <label>収縮期血圧（mmHg）<input id="sbp" class="input" type="number" value="128"></label>
+              </div>
+              <div class="row row-2">
+                <label>eGFR<input id="egfr" class="input" type="number" value="70"></label>
+                <label>週あたり運動（分）<input id="pa" class="input" type="number" value="90"></label>
+              </div>
+              <label style="display:flex;align-items:center;gap:.5rem"><input id="smoker" type="checkbox">喫煙あり</label>
+            </div>
+            <div class="grid" style="align-content:start">
+              <div class="card"><div class="body">
+                <div class="muted" style="font-size:.9rem">推定5年リスク（体験版）</div>
+                <div id="riskpct" style="font-size:2.2rem;font-weight:800">--%</div>
+                <div class="chip"><span id="banddot" class="dot"></span> <span id="bandtxt">--</span></div>
+                <ul id="tips" class="muted" style="margin-top:10px;padding-left:18px"></ul>
+              </div></div>
+              <div>
+                <div class="muted" style="font-size:.75rem;display:flex;justify-content:space-between"><span>0%</span><span>50%</span><span>100%</span></div>
+                <div class="gauge"><div id="gaugebar" style="width:0%"></div></div>
+              </div>
+              <div class="muted" style="font-size:.75rem">免責：本機能は教育・体験目的の推定であり、医療行為ではありません。</div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:16px">
+          <h2>価格プラン</h2>
+          <p class="muted">要件・人口規模により個別見積もり。以下は参考例です。</p>
+        </div>
+        <div class="row row-3">
+          <div class="card"><div class="body">
+            <h3>Starter</h3><p class="muted">小規模実証・機能限定</p>
+            <div style="font-size:1.8rem;font-weight:800">¥1,500,000<span class="muted" style="font-size:1rem">/年〜</span></div>
+          </div></div>
+          <div class="card" style="border-width:2px"><div class="body">
+            <span class="chip" style="margin-bottom:.5rem">おすすめ</span>
+            <h3>Standard</h3><p class="muted">本格運用・伴走支援</p>
+            <div style="font-size:1.8rem;font-weight:800">¥6,000,000<span class="muted" style="font-size:1rem">/年〜</span></div>
+          </div></div>
+          <div class="card"><div class="body">
+            <h3>Enterprise</h3><p class="muted">大規模自治体・保険者向け</p>
+            <div style="font-size:1.8rem;font-weight:800">個別見積り</div>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" style="background:#f8fafc">
+      <div class="container row row-2">
+        <div>
+          <h2>ご相談ください</h2>
+          <p class="muted">要件整理から並走します。まずは資料請求またはデモをご依頼ください。</p>
+          <div class="muted">info@example.jp / 03-XXXX-YYYY（平日10:00-17:00）</div>
+        </div>
+        <div class="card"><div class="body grid">
+          <label>ご担当者名<input class="input" placeholder="例：山田 太郎"></label>
+          <label>ご所属／部署<input class="input" placeholder="例：〇〇市 健康福祉部"></label>
+          <label>メール<input class="input" type="email" placeholder="you@example.jp"></label>
+          <button class="btn">送信する</button>
+        </div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="padding:24px 0;display:grid;gap:10px">
+      <div style="font-weight:600">介護予防AI</div>
+      <div class="muted" style="font-size:.85rem">© <span id="year"></span> Preventive Care Intelligence.</div>
+    </div>
+  </footer>
+
+  <div class="cta">
+    <div class="container">
+      <div class="card"><div class="body" style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <div class="muted">高リスク層の早期発見で、移行を減らす。今すぐ資料請求・デモをご依頼ください。</div>
+        <div style="display:flex;gap:.5rem">
+          <a href="#pricing" class="btn outline">価格を見る</a>
+          <a href="#contact" class="btn">資料請求</a>
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <script>
+    // ROI calc
+    function calcROI(){
+      const ppl=+document.getElementById('ppl').value||0;
+      const base=+document.getElementById('base').value||0;
+      const red=+document.getElementById('red').value||0;
+      const unit=+document.getElementById('unit').value||0;
+      const fee=+document.getElementById('fee').value||0;
+      const prevented=Math.round(ppl*base*red);
+      const saving=Math.round(prevented*unit);
+      const roi=fee>0?((saving-fee)/fee):0;
+      document.getElementById('s_prevented').textContent=prevented.toLocaleString();
+      document.getElementById('s_saving').textContent=saving.toLocaleString();
+      document.getElementById('s_roi').textContent=(roi.toFixed(2))+'×';
+    }
+    ['ppl','base','red','unit','fee'].forEach(id=>document.getElementById(id).addEventListener('input',calcROI));
+    calcROI();
+
+    // Risk demo heuristic (same as TS version)
+    function riskDemo(){
+      const x={
+        age:+age.value, sex:sex.value, hba1c:+hba1c.value, tg:+tg.value,
+        bmi:+bmi.value, sbp:+sbp.value, egfr:+egfr.value,
+        smoker:smoker.checked, paMinPerWeek:+pa.value
+      };
+      const b0=-3.5;
+      const age10=(x.age-60)/10;
+      const male=x.sex==='male'?1:0;
+      const hba1c1=x.hba1c-6.0;
+      const logTG=Math.log(Math.max(x.tg,30)/150);
+      const sbp10=(x.sbp-130)/10;
+      const bmi5=(x.bmi-25)/5;
+      const egfrLow=x.egfr<60?1:0;
+      const smokerV=x.smoker?1:0;
+      const paUnits=x.paMinPerWeek/150;
+      const score=b0+0.45*age10+0.25*male+0.35*hba1c1+0.4*logTG+0.2*sbp10+0.15*bmi5+0.5*egfrLow+0.6*smokerV-0.3*paUnits;
+      const p=1/(1+Math.exp(-score));
+      const pct=Math.max(0,Math.min(1,p))*100;
+      let band='Low',dot='low';
+      if(pct>=10&&pct<20){band='Moderate';dot='mod'}
+      else if(pct>=20&&pct<40){band='High';dot='high'}
+      else if(pct>=40){band='Very High';dot='vhigh'}
+      riskpct.textContent=pct.toFixed(1)+'%';
+      bandtxt.textContent=band;
+      banddot.className='dot '+dot;
+      gaugebar.style.width=pct.toFixed(1)+'%';
+      const tips=[];
+      if(x.hba1c>6.5) tips.push('HbA1cを0.5%下げるプランを主治医と設計');
+      if(x.tg>150) tips.push('TGを100–149mg/dLへ：夕食炭水化物/アルコール/間食を調整');
+      if(x.sbp>130) tips.push('収縮期血圧を120–129mmHgへ：減塩＋有酸素運動');
+      if(x.paMinPerWeek<150) tips.push('週150分以上の中等度運動を確保');
+      if(x.egfr<60) tips.push('腎機能のフォローと腎保護策');
+      if(x.bmi>=27) tips.push('体重5–7%減量（食事×運動）');
+      if(x.smoker) tips.push('禁煙支援の導入');
+      tipsEl.innerHTML=tips.map(t=>'<li>'+t+'</li>').join('');
+    }
+    const tipsEl=document.getElementById('tips');
+    ['age','sex','hba1c','tg','bmi','sbp','egfr','pa','smoker'].forEach(id=>document.getElementById(id).addEventListener('input',riskDemo));
+    riskDemo();
+
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
